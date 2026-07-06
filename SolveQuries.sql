@@ -201,3 +201,31 @@ ORDER BY
      u.user_id;
 
 -- QUERY 6: Bookings costing more than the average booking cost
+SELECT
+     booking_id,
+     match_id,
+     total_cost
+FROM
+     Bookings
+WHERE
+     total_cost > (
+          SELECT
+               AVG(total_cost)
+          FROM
+               Bookings
+     )
+ORDER BY
+     total_cost DESC;
+
+---Top 2 most expensive matches,
+skipping the highest one
+SELECT
+     match_id,
+     fixture,
+     base_ticket_price
+FROM
+     Matches
+ORDER BY
+     base_ticket_price DESC
+LIMIT
+     2 OFFSET 1;
