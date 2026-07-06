@@ -188,3 +188,16 @@ FROM
      INNER JOIN Matches m ON b.match_id = m.match_id
 ORDER BY
      b.booking_id;
+
+-- QUERY 5: All users and their bookings (fans with no booking included)
+SELECT
+     u.user_id,
+     u.full_name,
+     b.booking_id
+FROM
+     Users u
+     LEFT JOIN Bookings b ON u.user_id = b.user_id
+ORDER BY
+     u.user_id;
+
+-- QUERY 6: Bookings costing more than the average booking cost
