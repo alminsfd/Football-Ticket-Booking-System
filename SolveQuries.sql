@@ -217,8 +217,7 @@ WHERE
 ORDER BY
      total_cost DESC;
 
----Top 2 most expensive matches,
-skipping the highest one
+--- QUERY 7 : Top 2 most expensive matches,skipping the highest one
 SELECT
      match_id,
      fixture,
